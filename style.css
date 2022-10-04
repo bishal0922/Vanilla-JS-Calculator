@@ -1,0 +1,70 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: normal;
+}
+
+body{
+    padding: 0;
+    margin: 0;
+    background: linear-gradient(to right, #434343, #000000);
+}
+
+.calculator-grid {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    min-height: 100vh;
+    grid-template-columns: repeat(4, 100px);
+    /*at min we want 120px and it can fit anything, we want 5  */
+    grid-template-rows: minmax(120px, auto) repeat(5, 100px);
+}
+
+.calculator-grid > button {
+    cursor: pointer;
+    font-size: 2rem;
+    border: 1px solid #434343;
+    outline: none;
+    background: #a6a2a2;
+
+}
+
+.calculator-grid > button:hover {
+    background: #dfdddd;
+}
+
+.span-two {
+    /*we want to span 2 columns */
+    grid-column: span 2;
+}
+
+.output {
+    /* first column to last column*/
+    grid-column: 1 / -1;
+    background: #dfdddd;
+    border: 1px solid rgb(5, 5, 5);
+    /*align items inside container, 
+    flex-end for right side of the container
+    spaced out as far as possible so space-between as much possible space between our elements
+    */
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    flex-direction: column; /*line up vertically instead of horizontally*/
+    padding: 10px; /*to give space between the border and the text*/
+    /* we want to be able break our words in the middle of it (instead of space), word break to break all words*/
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.output .previous-operand {
+    color: rgba(20, 19, 19, 0.968);
+    font-size: 1.5rem;
+
+}
+
+.output .current-operand {
+    color: black;
+    font-size: 2.5rem;
+
+}
